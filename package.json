@@ -1,0 +1,87 @@
+{
+  "name": "approvedby",
+  "displayName": "Approved by",
+  "description": "See who approved this line of code",
+  "version": "0.0.1",
+  "publisher": "ep",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Git Approvers Hover Settings",
+      "properties": {
+        "gitApproversHover.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "Enter your GitHub personal access token to enable fetching PR approvers."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Say Hello"
+      }
+    ],
+    "languages": [
+      {
+        "id": "javascript",
+        "extensions": [
+          ".js"
+        ],
+        "aliases": [
+          "JavaScript",
+          "js"
+        ]
+      },
+      {
+        "id": "typescript",
+        "extensions": [
+          ".ts"
+        ],
+        "aliases": [
+          "TypeScript",
+          "ts"
+        ]
+      }
+    ],
+    "hoverProvider": [
+      {
+        "language": "*"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/ini": "^4.1.1",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.94.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.11.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "ini": "^5.0.0"
+  }
+}
